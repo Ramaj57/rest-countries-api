@@ -1,27 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { Component, DestroyRef, inject, input, signal } from '@angular/core';
 import { map } from 'rxjs';
 import { Country } from '../countries';
-import { CountryCardComponent } from "../country-card/country-card.component";
-import { DropDownComponent } from "../drop-down/drop-down.component";
-
 
 @Component({
-  selector: 'app-country-home',
+  selector: 'app-country-card',
   standalone: true,
-  imports: [CountryCardComponent, DropDownComponent],
-  templateUrl: './country-home.component.html',
-  styleUrl: './country-home.component.css',
+  imports: [],
+  templateUrl: './country-card.component.html',
+  styleUrl: './country-card.component.css',
 })
-export class CountryHomeComponent implements OnInit {
+export class CountryCardComponent {
   countries = signal<Country[]>([]);
-
+  name = input<string>('');
+  population = input<number>();
+  region = input<string>('');
+  capital = input<string[] | undefined>([""]);
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 
