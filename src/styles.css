@@ -1,8 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+/* Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
 - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
 - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
 - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
 - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
+
+/* Mobile: 375px
+- Desktop: 1440px */
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 1000
+// <width>: Use a value from 75 to 125
+// <lowercase height>: Use a value from 440 to 540
+
+.nunito-sans-<uniquifier> {
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" <width>,
+    "YTLC" <lowercase height>;
+} */
