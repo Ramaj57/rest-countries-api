@@ -1,0 +1,25 @@
+header{
+    height:10vh;
+    
+}
+
+.ionicon{
+    width:2rem;
+    fill:white;
+}
+
+
+
+button{
+    border:none;
+    background-color:white;
+}
+
+.dark{
+    color:white;
+    background-color: gray;
+}
+
+button.dark{
+    background-color: transparent;
+}
