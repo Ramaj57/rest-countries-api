@@ -1,24 +1,20 @@
-import { Component, signal } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgClass, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'rest-countries-api';
-  isDark = signal<boolean>(false);
+  isDark = false;
 
   toggleDarkMode() {
-    if (!this.isDark()) {
-      this.isDark.set(true);
-      document.body.classList.toggle('dark');
-    } else {
-      this.isDark.set(false);
-      document.body.classList.toggle('dark');
-    }
+    this.isDark = !this.isDark;
   }
 }
