@@ -2,10 +2,11 @@
 <app-drop-down/>
 
 @for (country of countries(); track country.name.common) {
-<app-country-card
+<app-home-card
   [name]="country.name.common"
   [population]="country.population"
   [region]="country.region"
   [capital]="country.capital"
+  [flag]="country.flags.png"
 />
 }
