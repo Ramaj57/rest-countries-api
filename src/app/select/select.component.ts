@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './select.component.html',
   styleUrl: './select.component.css'
 })
-export class DropDownComponent {
+export class SelectComponent {
 
 }
