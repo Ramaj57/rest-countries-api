@@ -1,0 +1,21 @@
+<div class="card-container">
+    <img [src]="flag()" [alt]="alt()" />
+    <h1>{{ name() }}</h1>
+    <ul>
+      <li>Native Name:</li>
+      <li>Population:{{ population() }}</li>
+      <li>Region:{{ region() }}</li>
+      <li>Sub Region:</li>
+      <li>Capital:{{ capital() }}</li>
+      <li>Top Level Domain:</li>
+      <li>Currencies:</li>
+      <li>Languages</li>
+      <ul>
+      @for (border of countries(); track border.borders) {
+      <li>border countries:{{borders()}}</li>
+      }
+      
+      </ul>
+    </ul>
+
+  </div>
