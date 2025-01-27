@@ -2,11 +2,12 @@ import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { Country } from '../countries-model';
 import { HomeCardComponent } from '../home-card/home-card.component';
 import { CountriesService } from '../countries.service';
+import { SelectComponent } from "../select/select.component";
 
 @Component({
   selector: 'app-country-home',
   standalone: true,
-  imports: [HomeCardComponent],
+  imports: [HomeCardComponent, SelectComponent],
   templateUrl: './country-home.component.html',
   styleUrl: './country-home.component.css',
 })
