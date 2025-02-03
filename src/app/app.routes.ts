@@ -8,13 +8,12 @@ export const routes: Routes = [
     },
     {
         path:'home', component:CountryHomeComponent,
-        children:[
-            {
-                path:':place', component: CountryDetailsComponent,
-            
-            }
-        ]
-            
     },
-    
-];
+    {
+        path:':place', component: CountryDetailsComponent,
+            
+    }
+    ]
+            
+     
+
