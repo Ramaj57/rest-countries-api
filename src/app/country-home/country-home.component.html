@@ -1,8 +1,10 @@
-<input type="search" name="" id="" />
+<div class="country-filters">
+<input [(ngModel)]="searchFilter" type="text" placeholder="search for a country..." id="search" name="search"/>
+</div>
 <app-select/>
 
-@for (country of countries(); track country.name.common) {
-<app-home-card
+@for (country of countries; track country.name.common) {
+<app-home-card [routerLink]="['/',country.name.common]" 
   [name]="country.name.common"
   [population]="country.population"
   [region]="country.region"
