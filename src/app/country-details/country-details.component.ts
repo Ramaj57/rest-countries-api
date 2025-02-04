@@ -1,22 +1,78 @@
-import { Component, input } from '@angular/core';
-import { DetailsCardComponent } from "../details-card/details-card.component";
+import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
+import { Country, Currencies, Languages, NativeName } from '../countries-model';
+import { CountriesService } from '../countries.service';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable, tap } from 'rxjs';
+import { FormatBigNumbersPipe } from '../format-big-numbers.pipe';
 
 @Component({
   selector: 'app-country-details',
   standalone: true,
-  imports: [DetailsCardComponent],
+  imports: [FormatBigNumbersPipe],
   templateUrl: './country-details.component.html',
   styleUrl: './country-details.component.css',
 })
 export class CountryDetailsComponent {
-  name = input<string>('');
-  nativeName = input<string>('');
-  population = input<number>();
-  region = input<string>('');
-  subregion = input<string>('');
-  capital = input<string>();
-  topLevelDomain = input<[string]>();
-  currencies = input<string>();
-  languages = input<string>('');
-  borders = input<string>('');
+  countries = signal<Country[]>([]);
+  nativeName = signal<NativeName>({});
+  population = signal<string>('');
+  region = signal<string>('');
+  capital = signal<string[]>(['']);
+  topLevelDomain = signal<string[]>(['']);
+  currencies = signal<Currencies>({});
+  languages = signal<Languages>({});
+  country$!: Observable<Country>;
+  subregion = signal<string>('');
+
+  private countriesService = inject(CountriesService);
+  private destroyRef = inject(DestroyRef);
+  private route = inject(ActivatedRoute);
+  image = signal<string>('');
+  name = signal<string>('');
+  alt = computed<string>(() => 'picture of ' + this.name() + "'s flag");
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.country$ = this.countriesService
+        .getCountryByName(params['place'])
+        .pipe(tap((res) => console.log(res)));
+      this.country$.subscribe((country) => {
+        // Update signals with country data
+        this.nativeName.set(country.name.nativeName); // Fallback in case the native name is missing
+        this.image.set(country.flags.png);
+        this.population.set(country.population || '');
+        this.region.set(country.region || '');
+        this.capital?.set(country.capital || ['']); // Assuming capital is an array
+        this.topLevelDomain?.set(country.tld || ['']); // Assuming tld is an array
+        this.currencies?.set(country.currencies); // Assuming currencies is an array of objects
+        this.languages.set(country.languages); // Join languages into a string if multiple
+        this.name.set(country.name.common || '');
+        this.subregion.set(country.subregion || 'Does not have a subregion');
+      });
+
+      const subscription = this.countriesService
+        .getAllCountries()
+        .pipe(map(([resData]) => resData))
+        .subscribe({
+          next: (resData) => {
+            this.countries.set([resData]);
+          },
+        });
+      this.destroyRef.onDestroy(() => {
+        subscription.unsubscribe();
+      });
+    });
+  }
+
+  displayCurrencies(currencies: Currencies) {
+    return Object.values(currencies).map(money => money.name);
+  }
+
+  displayLanguages(languages: Languages) {
+    return Object.values(languages);
+  }
+
+  displayNativeName(nativeName: NativeName) {
+    return Object.values(nativeName).map((orginal) => orginal.official);
+  }
 }

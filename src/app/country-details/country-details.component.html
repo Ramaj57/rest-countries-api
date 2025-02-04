@@ -1,2 +1,15 @@
-<button><---- Back</button>
-<app-details-card/>
+<a href=""><button><---- Back</button></a>
+<div class="card-container">
+  <img [src]="image()" [alt]="alt()" />
+  <h1>{{ name() }}</h1>
+  <ul>
+    <li>Native Name(s):{{ displayNativeName(nativeName()) }}</li>
+    <li>Population:{{ population() | formatBigNumbers }}</li>
+    <li>Region:{{ region() }}</li>
+    <li>Subregion:{{ subregion() }}</li>
+    <li>Capital:{{ capital() }}</li>
+    <li>Top Level Domain:{{ topLevelDomain() }}</li>
+    <li>Currencies:{{ displayCurrencies(currencies()) }}</li>
+    <li><strong>Language(s)</strong>:{{ displayLanguages(languages()) }}</li>
+  </ul>
+</div>
