@@ -11,10 +11,9 @@ export class SelectComponent {
 options = input<string[]>();
 valueChange = output<string>();
 value = input<string>();
-placeholder = input<string>()
 
-onSelect(value:string) {
-  this.valueChange.emit(value);
+
+onSelect(e:any) {
+  this.valueChange.emit(e.target.value)
 }
-
 }
