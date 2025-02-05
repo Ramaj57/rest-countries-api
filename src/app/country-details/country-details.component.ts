@@ -77,6 +77,6 @@ export class CountryDetailsComponent {
   }
 
   displayNativeName(nativeName: NativeName) {
-    return Object.values(nativeName);
+    return Object.values(nativeName).map((orginal) => orginal.official);
   }
 }
