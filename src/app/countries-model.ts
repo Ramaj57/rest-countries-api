@@ -7,12 +7,12 @@ export interface Country {
     independent?: boolean;
     status: string;
     unMember: boolean;
-    currencies: Currencies;
+    currencies?: Currencies;
     idd: Idd;
     capital?: string[];
     altSpellings: string[];
     region: string;
-    languages: Languages;
+    languages?: Languages;
     translations: Translations;
     latlng: number[];
     landlocked: boolean;
@@ -125,6 +125,7 @@ export interface Country {
   }
   
   export interface Languages {
+    [x: string]: any;
     eng?: string;
     fra?: string;
     gsw?: string;
@@ -288,7 +289,6 @@ export interface Country {
   }
   
   export interface Currencies {
-    [x: string]: any;
     SHP?: SHP;
     XCD?: SHP;
     CHF?: SHP;
@@ -461,7 +461,7 @@ export interface Country {
   export interface Name {
     common: string;
     official: string;
-    nativeName: NativeName;
+    nativeName?: NativeName;
   }
   
   export interface NativeName {
