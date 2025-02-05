@@ -1,35 +1,38 @@
-import {
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { Country } from '../countries-model';
 import { HomeCardComponent } from '../home-card/home-card.component';
 import { CountriesService } from '../countries.service';
 import { SelectComponent } from '../select/select.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FormatBigNumbersPipe } from "../format-big-numbers.pipe";
+
+const region_Options = ['Africa', 'Americas', 'Antarctic', 'Asia', 'Europe', 'Oceania'];
 
 @Component({
   selector: 'app-country-home',
   standalone: true,
-  imports: [HomeCardComponent, SelectComponent, RouterLink, FormsModule],
+  imports: [
+    HomeCardComponent,
+    SelectComponent,
+    RouterLink,
+    FormsModule,
+    SelectComponent,
+  ],
   templateUrl: './country-home.component.html',
   styleUrl: './country-home.component.css',
 })
 export class CountryHomeComponent implements OnInit {
-  searchFilter: string = '';
-  countries: Country[] = [];
+  searchFilter = signal<string>('');
+  regionFilter = signal<string>('');
+  countries = signal<Country[]>([]);
   private countriesService = inject(CountriesService);
   private destroyRef = inject(DestroyRef);
-  countriesList: Country[] = [];
+  regionOptions = signal(region_Options);
 
   ngOnInit(): void {
     const subscription = this.countriesService.getAllCountries().subscribe({
       next: (resData) => {
-        this.countries = resData;
+        this.countries.set(resData);
       },
     });
 
@@ -39,7 +42,20 @@ export class CountryHomeComponent implements OnInit {
   }
 
   get filteredCountries() {
-    return this.countries.filter(country => country.name.common.toLowerCase().includes(this.searchFilter.toLowerCase()))
-  }
+    return this.countries()
+      ? this.countries()
+          .filter((country) =>
+            this.searchFilter()
+              ? country.name.common
+                  .toLowerCase()
+                  .includes(this.searchFilter().toLowerCase())
+              : country
+          )
+          .filter(country =>
+            this.regionFilter()
+              ? country.region.includes(this.regionFilter())
+              : country
+          )
+      : this.countries();
+  }  
 }
-

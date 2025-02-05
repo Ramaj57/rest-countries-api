@@ -1,5 +1,6 @@
-<label for="countries"></label>
-
-<select name="" id="">
-
+<select  name="regions" id="regions">
+    <option value="">Filter By Region</option>
+  @for (option of options(); track option) { 
+  <option (click)="onSelect(option)">{{ option }}</option>
+  }
 </select>
