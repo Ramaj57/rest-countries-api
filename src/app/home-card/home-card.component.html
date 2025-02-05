@@ -4,6 +4,9 @@
   <ul>
     <li>Population:{{ population() | formatBigNumbers }}</li>
     <li>Region:{{ region() }}</li>
-    <li>Capital:{{ capital() }}</li>
+    @if (capital()?.values){
+      <li>Capital:{{ capital() }}</li>
+    } @else{<li>Capital:N/A</li>}
+    
   </ul>
 </div>

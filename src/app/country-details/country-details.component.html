@@ -3,13 +3,20 @@
   <img [src]="image()" [alt]="alt()" />
   <h1>{{ name() }}</h1>
   <ul>
-    <li>Native Name(s):{{ displayNativeName(nativeName()) }}</li>
+    @if (nativeName() === undefined){
+      <li>Native Name(s):{{ displayNativeName(nativeName()) }}</li>
+    } @else{<li>Native Name(s):N/A</li>}    
     <li>Population:{{ population() | formatBigNumbers }}</li>
     <li>Region:{{ region() }}</li>
     <li>Subregion:{{ subregion() }}</li>
     <li>Capital:{{ capital() }}</li>
     <li>Top Level Domain:{{ topLevelDomain() }}</li>
-    <li>Currencies:{{ displayCurrencies(currencies()) }}</li>
-    <li><strong>Language(s)</strong>:{{ displayLanguages(languages()) }}</li>
+    @if(currencies() === undefined){
+      <li>Currencies:{{ displayCurrencies(currencies()) }}</li>
+    } @else{<li>Currencies:N/A</li>}
+    @if(languages()=== undefined){
+<li><strong>Language(s)</strong>:{{ displayLanguages(languages()) }}</li>
+    }@else{<li><strong>Language(s)</strong>:N/A</li>}
+    
   </ul>
 </div>

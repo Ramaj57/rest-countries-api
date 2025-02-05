@@ -39,17 +39,17 @@ export class CountryDetailsComponent {
       this.country$.subscribe((country) => {
         // Update signals with country data
         if(country.name.nativeName)
-          this.nativeName.set(country.name.nativeName || 'N/A');
+          this.nativeName.set(country.name.nativeName);
          // Fallback in case the native name is missing
         this.image.set(country.flags.png);
-        this.population.set(country.population || 'N/A');
+        this.population.set(country.population);
         this.region.set(country.region || 'N/A');
         this.capital.set(country.capital || ['N/A']); // Assuming capital is an array
         this.topLevelDomain?.set(country.tld || ['N/A']); // Assuming tld is an array
         if(country.currencies)
         this.currencies.set(country.currencies || 'N/A');
       if(country.languages) // Assuming currencies is an array of objects
-        this.languages.set(country.languages || 'N/A'); // Join languages into a string if multiple
+        this.languages.set(country.languages); // Join languages into a string if multiple
         this.name.set(country.name.common || 'N/A');
         this.subregion.set(country.subregion || 'N/A');
       });
