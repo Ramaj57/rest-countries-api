@@ -1,14 +1,27 @@
-<div class="country-filters">
-<input [(ngModel)]="searchFilter" type="text" placeholder="Search For a Country..." id="search" name="search"/>
-</div>
-<app-select [options]="regionOptions()" [(value)]="regionFilter"/>
+<div class="home-container">
+  <div class="flex">
+    <div class="search-bar">
+      <input
+        [(ngModel)]="searchFilter"
+        type="text"
+        placeholder="Search For a Country..."
+        id="search"
+        name="search"
+      />
+    </div>
+    <app-select [options]="regionOptions()" [(value)]="regionFilter" class="select"/>
+  </div>
 
-@for (country of filteredCountries; track country.name.common) {
-<app-home-card [routerLink]="['/',country.name.common]" 
-  [name]="country.name.common"
-  [population]="country.population"
-  [region]="country.region"
-  [capital]="country.capital"
-  [flag]="country.flags.png"
-/>
-}
+  <div class="grid-container">
+    @for (country of filteredCountries; track country.name.common) {
+    <app-home-card
+      [routerLink]="['/', country.name.common]"
+      [name]="country.name.common"
+      [population]="country.population"
+      [region]="country.region"
+      [capital]="country.capital"
+      [flag]="country.flags.png"
+    />
+    }
+  </div>
+</div>
