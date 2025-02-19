@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'rest-countries-api';
   isDark = false;
 
-  toggleDarkMode() {
+  toggleBodyDarkMode() {
     this.isDark = !this.isDark;
   }
 }

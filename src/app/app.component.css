@@ -1,14 +1,10 @@
-.dark{
-    color:white;
-    background-color: gray;
-}
-
 body.dark{
-    background-color: black;
-    color:white;
+    color:var(--white);
+    background-color:var(--DarkModeBackground);
 }
 
 body{
-    color:black;
-    background-color: white;
+    color:var(--LightModeText);
+    
 }
+
