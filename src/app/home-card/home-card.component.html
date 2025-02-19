@@ -2,11 +2,11 @@
   <img [src]="flag()" [alt]="alt()" />
   <h1>{{ name() }}</h1>
   <ul>
-    <li>Population:{{ population() | formatBigNumbers }}</li>
-    <li>Region:{{ region() }}</li>
+    <li><span class="bold-list">Population:</span>{{ population() | formatBigNumbers }}</li>
+    <li><span class="bold-list">Region:</span>{{ region() }}</li>
     @if (capital()?.values){
-      <li>Capital:{{ capital() }}</li>
-    } @else{<li>Capital:N/A</li>}
+      <li><span class="bold-list">Capital:</span>{{ capital() }}</li>
+    } @else{<li><span class="bold-list">Capital:</span>N/A</li>}
     
   </ul>
 </div>

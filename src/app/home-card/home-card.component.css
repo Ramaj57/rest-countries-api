@@ -1,0 +1,42 @@
+.card-container{
+    border:0 solid black;
+    border-radius: .3rem;
+    /* height:21rem; */
+    width:fit-content;
+    padding-bottom: 3rem;
+    background-color: var(--white);
+}
+
+img{
+height:10rem;
+width:16.5rem;
+margin-bottom:1.5rem;
+border-radius:0.3rem 0.3rem 0 0;
+}
+
+h1,li{
+    margin-left:1.5rem;
+    
+}
+
+h1{
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-size: 1.125rem;
+    /* line-height: 26%; */
+}
+
+ul{
+    height:4rem;
+}
+
+li{
+    font-size: 0.875rem;
+    margin-bottom:0.5rem;
+    list-style: none;
+    /* line-height: 16%; */
+}
+
+.bold-list{
+    font-weight: 600;
+}
