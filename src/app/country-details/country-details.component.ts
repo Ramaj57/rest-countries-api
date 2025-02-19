@@ -23,7 +23,7 @@ export class CountryDetailsComponent {
   languages = signal<Languages>({});
   country$!: Observable<Country>;
   subregion = signal<string>('');
-
+isDark = false;
   private countriesService = inject(CountriesService);
   private destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
@@ -45,9 +45,9 @@ export class CountryDetailsComponent {
         this.population.set(country.population);
         this.region.set(country.region || 'N/A');
         this.capital.set(country.capital || ['N/A']); // Assuming capital is an array
-        this.topLevelDomain?.set(country.tld || ['N/A']); // Assuming tld is an array
+        this.topLevelDomain.set(country.tld || ['N/A']); // Assuming tld is an array
         if(country.currencies)
-        this.currencies.set(country.currencies || 'N/A');
+        this.currencies.set(country.currencies);
       if(country.languages) // Assuming currencies is an array of objects
         this.languages.set(country.languages); // Join languages into a string if multiple
         this.name.set(country.name.common || 'N/A');
@@ -79,4 +79,6 @@ export class CountryDetailsComponent {
   displayNativeName(nativeName: NativeName) {
     return Object.values(nativeName).map((orginal) => orginal.official);
   }
+
+  
 }

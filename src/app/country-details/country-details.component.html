@@ -1,22 +1,21 @@
-<a href=""><button><---- Back</button></a>
+<div class="details-container">
+<a href=""><button><img src="/assets/leftArrowIcon.png" alt="" class="backArrow"> Back</button></a>
 <div class="card-container">
-  <img [src]="image()" [alt]="alt()" />
-  <h1>{{ name() }}</h1>
-  <ul>
-    @if (nativeName() === undefined){
-      <li>Native Name(s):{{ displayNativeName(nativeName()) }}</li>
-    } @else{<li>Native Name(s):N/A</li>}    
-    <li>Population:{{ population() | formatBigNumbers }}</li>
-    <li>Region:{{ region() }}</li>
-    <li>Subregion:{{ subregion() }}</li>
-    <li>Capital:{{ capital() }}</li>
-    <li>Top Level Domain:{{ topLevelDomain() }}</li>
-    @if(currencies() === undefined){
-      <li>Currencies:{{ displayCurrencies(currencies()) }}</li>
-    } @else{<li>Currencies:N/A</li>}
-    @if(languages()=== undefined){
-<li><strong>Language(s)</strong>:{{ displayLanguages(languages()) }}</li>
-    }@else{<li><strong>Language(s)</strong>:N/A</li>}
-    
-  </ul>
+  <div class="left-side">
+    <img [src]="image()" [alt]="alt()" class="flag" />
+  </div>
+  <div class="right-side">
+    <h1>{{ name() }}</h1>
+    <ul>
+      <li><span class="bold-list">Native Name(s):</span> {{ displayNativeName(nativeName()) }}</li>
+      <li><span class="bold-list">Population:</span>{{ population() | formatBigNumbers }}</li>
+      <li><span class="bold-list">Region:</span>{{ region() }}</li>
+      <li><span class="bold-list">Subregion:</span>{{ subregion() }}</li>
+      <li><span class="bold-list">Capital:</span>{{ capital() }}</li>
+      <li><span class="bold-list">Top Level Domain:</span>{{ topLevelDomain() }}</li>
+      <li><span class="bold-list">Currencies:</span>{{ displayCurrencies(currencies()) }}</li>
+      <li><span class="bold-list">Language(s):</span>{{ displayLanguages(languages()) }}</li>
+    </ul>
+  </div>
+</div>
 </div>
