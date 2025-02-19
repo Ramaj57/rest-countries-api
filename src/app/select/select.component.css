@@ -1,0 +1,10 @@
+select{
+    font-size: .75rem;
+    margin-bottom: 2rem;
+    height:3rem;
+    padding: 0 4rem 0 1.5rem;
+    border:0 solid black;
+    border-radius: 5px;
+    color:var(--LightModeText);
+}
+

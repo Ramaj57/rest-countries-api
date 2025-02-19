@@ -1,4 +1,4 @@
-<select (change)="onSelect($event)" name="regions" id="regions">
+<select (change)="onSelect($event)" name="regions" id="regions" (toggle)="toggleBodyDarkMode()" [ngClass]="{ dark: isDark }">
     <option value="">Filter By Region</option>
   @for (option of options(); track option) { 
   <option >{{ option }}</option>
