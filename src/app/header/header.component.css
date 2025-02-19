@@ -1,10 +1,19 @@
 header{
     height:10vh;
-    
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:var(--white);
+    padding:0 3rem;
+}
+.where{
+font-weight: 800;
+font-size: .875rem; 
+/* line-height: 20%; */
 }
 
 .ionicon{
-    width:2rem;
+    width:1rem;
     fill:white;
 }
 
@@ -13,8 +22,22 @@ header{
 button{
     border:none;
     background-color:white;
+    margin-left:.5rem;
+    font-size: .75rem;
+    font-weight: 600;
+    /* line-height: auto; */
 }
+
 button:hover{
     cursor: pointer;
 
+}
+
+button.dark{
+    background-color:var(--DarkModeBackground);
+    color:var(--white);
+}
+
+header.dark{
+    background-color: var(--DarkModeElements);
 }
