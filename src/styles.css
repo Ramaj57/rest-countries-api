@@ -19,6 +19,7 @@
 :root {
 font-family: "Nunito Sans", serif;
 font-style: normal;
+font-weight: 300;
   --LightModeBackground: hsl(0, 0%, 98%);
   --LightModeInput: hsl(0, 0%, 52%);
   --LightModeText: hsl(200, 15%, 8%);
