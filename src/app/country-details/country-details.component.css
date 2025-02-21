@@ -5,8 +5,7 @@
 button{
     font-size: .875rem;
     border:0 solid black;
-    border-radius: .125rem;
-    color:var(--LightModeText);
+    border-radius: .375rem;
     width:6.5rem;
     height:2rem;
     box-shadow: 0 0 .44rem 0 var(--LightModeInput);
@@ -14,6 +13,21 @@ button{
     /* line-height: 20%; */
     margin-bottom:4rem;
     
+}
+
+button.dark-theme{
+    background-color: var(--DarkModeElements);
+    box-shadow: none;
+}
+.dark-theme{
+    color:var(--white);
+    background-color: var(--DarkModeBackground);
+    filter: grayscale(0%) contrast(100%) invert(0);
+}
+
+.light-theme{
+    color:var(--text-color);
+    background-color: var(--white);
 }
 
 button:hover{
@@ -30,7 +44,6 @@ filter: grayscale(100%) contrast(100%) invert(1);
     display:flex;
     flex-direction:column;
     align-items: center;
-    color:hsl(0, 0%, 29.31%);
 }
 
 .flag{

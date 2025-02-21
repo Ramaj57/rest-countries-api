@@ -4,11 +4,13 @@ import { CountriesService } from '../countries.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
 import { FormatBigNumbersPipe } from '../format-big-numbers.pipe';
+import { ThemeService } from '../theme.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-country-details',
   standalone: true,
-  imports: [FormatBigNumbersPipe],
+  imports: [FormatBigNumbersPipe,NgClass],
   templateUrl: './country-details.component.html',
   styleUrl: './country-details.component.css',
 })
@@ -23,7 +25,7 @@ export class CountryDetailsComponent {
   languages = signal<Languages>({});
   country$!: Observable<Country>;
   subregion = signal<string>('');
-isDark = false;
+public themeService = inject(ThemeService);
   private countriesService = inject(CountriesService);
   private destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);

@@ -33,11 +33,12 @@ button:hover{
 
 }
 
-button.dark{
-    background-color:var(--DarkModeBackground);
+.dark-theme{
     color:var(--white);
+    background-color: var(--DarkModeElements);
 }
 
-header.dark{
-    background-color: var(--DarkModeElements);
+.light-theme{
+    color:var(--text-color);
+    background-color: var(--white);
 }

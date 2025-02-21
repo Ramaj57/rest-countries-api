@@ -5,6 +5,8 @@ import { CountriesService } from '../countries.service';
 import { SelectComponent } from '../select/select.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../theme.service';
+import { NgClass } from '@angular/common';
 
 const region_Options = ['Africa', 'Americas', 'Antarctic', 'Asia', 'Europe', 'Oceania'];
 
@@ -16,7 +18,7 @@ const region_Options = ['Africa', 'Americas', 'Antarctic', 'Asia', 'Europe', 'Oc
     SelectComponent,
     RouterLink,
     FormsModule,
-    SelectComponent,
+    SelectComponent,NgClass
   ],
   templateUrl: './country-home.component.html',
   styleUrl: './country-home.component.css',
@@ -28,6 +30,7 @@ export class CountryHomeComponent implements OnInit {
   private countriesService = inject(CountriesService);
   private destroyRef = inject(DestroyRef);
   regionOptions = signal(region_Options);
+  public themeService = inject(ThemeService);
 
   ngOnInit(): void {
     const subscription = this.countriesService.getAllCountries().subscribe({

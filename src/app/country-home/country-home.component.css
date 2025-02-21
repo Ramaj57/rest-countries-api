@@ -4,6 +4,21 @@
     background-color: var(--LightModeBackground);
 }
 
+.dark-theme{
+    color:var(--white);
+    background-color: var(--DarkModeBackground);
+}
+
+input.dark-theme{
+color: var(--white);
+background-color: var(--DarkModeElements);
+}
+
+.light-theme{
+    color:var(--text-color);
+    background-color: var(--background-color);
+}
+
 input{
     color:var(--LightModeInput);
     border:0 solid black;

@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,10 @@ import { HeaderComponent } from './header/header.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  public themeService = inject(ThemeService);
   title = 'rest-countries-api';
-  isDark = false;
 
-  toggleBodyDarkMode() {
-    this.isDark = !this.isDark;
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 }

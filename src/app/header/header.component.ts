@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +10,9 @@ import { Component, output } from '@angular/core';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  toggle = output<void>();
-  isDark = false;
-
-  toggleBodyDarkMode() {
-    this.isDark = !this.isDark;
-  }
-
-  onToggleDark() {
-    this.toggle.emit();
-  }
+  public themeService = inject(ThemeService);
+  
+toggleTheme() {
+  this.themeService.toggleTheme();
+}
 }

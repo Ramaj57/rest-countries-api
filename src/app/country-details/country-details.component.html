@@ -1,21 +1,48 @@
-<div class="details-container">
-<a href=""><button><img src="/assets/leftArrowIcon.png" alt="" class="backArrow"> Back</button></a>
-<div class="card-container">
-  <div class="left-side">
-    <img [src]="image()" [alt]="alt()" class="flag" />
+<div
+  class="details-container"
+  [ngClass]="{
+    'dark-theme': themeService.isDark(),
+    'light-theme': !themeService.isDark()
+  }"
+>
+  <a href=""
+    ><button [ngClass]="{
+      'dark-theme': themeService.isDark(),
+      'light-theme': !themeService.isDark()
+    }">
+      <img src="/assets/leftArrowIcon.png" alt="" class="backArrow" /> Back
+    </button></a
+  >
+  <div class="card-container">
+    <div class="left-side">
+      <img [src]="image()" [alt]="alt()" class="flag" />
+    </div>
+    <div class="right-side">
+      <h1>{{ name() }}</h1>
+      <ul>
+        <li>
+          <span class="bold-list">Native Name(s):</span>
+          {{ displayNativeName(nativeName()) }}
+        </li>
+        <li>
+          <span class="bold-list">Population:</span
+          >{{ population() | formatBigNumbers }}
+        </li>
+        <li><span class="bold-list">Region:</span>{{ region() }}</li>
+        <li><span class="bold-list">Subregion:</span>{{ subregion() }}</li>
+        <li><span class="bold-list">Capital:</span>{{ capital() }}</li>
+        <li>
+          <span class="bold-list">Top Level Domain:</span>{{ topLevelDomain() }}
+        </li>
+        <li>
+          <span class="bold-list">Currencies:</span
+          >{{ displayCurrencies(currencies()) }}
+        </li>
+        <li>
+          <span class="bold-list">Language(s):</span
+          >{{ displayLanguages(languages()) }}
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="right-side">
-    <h1>{{ name() }}</h1>
-    <ul>
-      <li><span class="bold-list">Native Name(s):</span> {{ displayNativeName(nativeName()) }}</li>
-      <li><span class="bold-list">Population:</span>{{ population() | formatBigNumbers }}</li>
-      <li><span class="bold-list">Region:</span>{{ region() }}</li>
-      <li><span class="bold-list">Subregion:</span>{{ subregion() }}</li>
-      <li><span class="bold-list">Capital:</span>{{ capital() }}</li>
-      <li><span class="bold-list">Top Level Domain:</span>{{ topLevelDomain() }}</li>
-      <li><span class="bold-list">Currencies:</span>{{ displayCurrencies(currencies()) }}</li>
-      <li><span class="bold-list">Language(s):</span>{{ displayLanguages(languages()) }}</li>
-    </ul>
-  </div>
-</div>
 </div>

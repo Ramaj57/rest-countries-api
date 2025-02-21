@@ -40,3 +40,13 @@ li{
 .bold-list{
     font-weight: 600;
 }
+
+.dark-theme{
+    color:var(--white);
+    background-color: var(--DarkModeElements);
+}
+
+.light-theme{
+    color:var(--text-color);
+    background-color: var(--background-color);
+}

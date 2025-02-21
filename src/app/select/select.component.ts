@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, input,output } from '@angular/core';
+import { Component, inject, input,output } from '@angular/core';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-select',
@@ -12,13 +13,11 @@ export class SelectComponent {
 options = input<string[]>();
 valueChange = output<string>();
 value = input<string>();
-isDark = false;
+public themeService = inject(ThemeService);
 
 onSelect(e:any) {
   this.valueChange.emit(e.target.value)
 }
 
-toggleBodyDarkMode(){
-  this.isDark = !this.isDark;
-}
+
 }

@@ -34,5 +34,14 @@ padding:0;
 box-sizing: border-box;
 }  
 
+.light-theme{
+--background-color:var(--LightModeBackground);
+--text-color:var(--LightModeText);
+}
+
+.dark-theme{
+  --background-color:var(--DarkModeBackground);
+  --text-color:var(--white);
+}
 
  

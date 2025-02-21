@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container" [ngClass]="{ 'dark-theme': themeService.isDark(), 'light-theme': !themeService.isDark() }">
   <div class="flex">
     <div class="search-bar">
       <input
@@ -7,6 +7,7 @@
         placeholder="Search For a Country..."
         id="search"
         name="search"
+        [ngClass]="{ 'dark-theme': themeService.isDark(), 'light-theme': !themeService.isDark()}"
       />
     </div>
     <app-select [options]="regionOptions()" [(value)]="regionFilter" class="select"/>
