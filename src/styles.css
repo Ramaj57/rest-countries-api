@@ -35,13 +35,19 @@ box-sizing: border-box;
 }  
 
 .light-theme{
---background-color:var(--LightModeBackground);
+--home-background-color:var(--LightModeBackground);
 --text-color:var(--LightModeText);
+--card-background-color:white;
+--input-text-color:var(--LightModeInput);
+--arrow-filter: grayscale(100%) contrast(100%) invert(1);
 }
 
 .dark-theme{
-  --background-color:var(--DarkModeBackground);
-  --text-color:var(--white);
+  --home-background-color:var(--DarkModeBackground);
+  --text-color:white;
+  --card-background-color:var(--DarkModeElements);
+  --input-text-color:white;
+  --arrow-filter:grayscale(0%) contrast(100%) invert(0);
 }
 
  

@@ -5,15 +5,7 @@ select{
     padding: 0 4rem 0 1.5rem;
     border:0 solid black;
     border-radius: 5px;
-    color:var(--LightModeText);
-}
-
-.dark-theme{
-    color:var(--white);
-    background-color: var(--DarkModeElements);
-}
-
-.light-theme{
     color:var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--card-background-color);
 }
+

@@ -4,7 +4,8 @@
     /* height:21rem; */
     width:fit-content;
     padding-bottom: 3rem;
-    background-color: var(--white);
+    color:var(--text-color);
+    background-color: var(--card-background-color);
 }
 
 img{
@@ -39,14 +40,4 @@ li{
 
 .bold-list{
     font-weight: 600;
-}
-
-.dark-theme{
-    color:var(--white);
-    background-color: var(--DarkModeElements);
-}
-
-.light-theme{
-    color:var(--text-color);
-    background-color: var(--background-color);
 }

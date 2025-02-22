@@ -1,26 +1,11 @@
 .home-container{
     padding:1.5rem 3rem;
     height:90vh;
-    background-color: var(--LightModeBackground);
-}
-
-.dark-theme{
-    color:var(--white);
-    background-color: var(--DarkModeBackground);
-}
-
-input.dark-theme{
-color: var(--white);
-background-color: var(--DarkModeElements);
-}
-
-.light-theme{
-    color:var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--home-background-color);
 }
 
 input{
-    color:var(--LightModeInput);
+    background-color: var(--card-background-color);
     border:0 solid black;
     border-radius: 5px;
     font-size: .75rem;
@@ -32,6 +17,10 @@ input{
   background-repeat: no-repeat;
   background-position: 2rem center; 
   background-size: 1.5rem 1.5rem; 
+}
+
+input::placeholder{
+    color:var(--input-text-color);
 }
 
 .grid-container{

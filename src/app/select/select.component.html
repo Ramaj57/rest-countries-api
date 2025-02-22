@@ -1,4 +1,4 @@
-<select (change)="onSelect($event)" name="regions" id="regions" [ngClass]="{ 'dark-theme': themeService.isDark(), 'light-theme': !themeService.isDark() }">
+<select (change)="onSelect($event)" name="regions" id="regions" >
     <option value="">Filter By Region</option>
   @for (option of options(); track option) { 
   <option >{{ option }}</option>

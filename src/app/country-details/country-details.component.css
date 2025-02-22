@@ -1,5 +1,7 @@
 .details-container{
     padding:0 1.75rem 0 1.75rem;
+    background-color: var(--home-background-color);
+    color:var(--text-color);
 }
 
 button{
@@ -9,25 +11,11 @@ button{
     width:6.5rem;
     height:2rem;
     box-shadow: 0 0 .44rem 0 var(--LightModeInput);
-    background-color: var(--white);
+    background-color: var(--home-background-color);
+    color:var(--text-color);
     /* line-height: 20%; */
     margin-bottom:4rem;
     
-}
-
-button.dark-theme{
-    background-color: var(--DarkModeElements);
-    box-shadow: none;
-}
-.dark-theme{
-    color:var(--white);
-    background-color: var(--DarkModeBackground);
-    filter: grayscale(0%) contrast(100%) invert(0);
-}
-
-.light-theme{
-    color:var(--text-color);
-    background-color: var(--white);
 }
 
 button:hover{
@@ -37,7 +25,7 @@ button:hover{
 .backArrow{
 height:1rem;
 width:2rem;
-filter: grayscale(100%) contrast(100%) invert(1);
+filter: var(--arrow-filter);
 }
 
 .card-container{

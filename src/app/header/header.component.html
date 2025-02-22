@@ -1,4 +1,4 @@
-<header [ngClass]="{ 'dark-theme': themeService.isDark(), 'light-theme': !themeService.isDark() }">
+<header >
   <div class="where">Where in the world?</div>
   <div class="darkModeBtn">
     <svg
@@ -14,6 +14,6 @@
         stroke-width="32"
       />
     </svg>
-    <button (click)="toggleTheme()" [ngClass]="{ 'dark-theme': themeService.isDark(), 'light-theme': !themeService.isDark() }">Dark Mode</button>
+    <button (click)="toggleTheme()">Dark Mode</button>
   </div>
 </header>

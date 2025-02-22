@@ -3,8 +3,10 @@ header{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    background-color:var(--white);
     padding:0 3rem;
+    color:var(--text-color);
+    background-color: var(--card-background-color);
+
 }
 .where{
 font-weight: 800;
@@ -21,24 +23,15 @@ font-size: .875rem;
 
 button{
     border:none;
-    background-color:white;
     margin-left:.5rem;
     font-size: .75rem;
     font-weight: 600;
+    background-color: var(--card-background-color);
+    color: var(--text-color);
     /* line-height: auto; */
 }
 
 button:hover{
     cursor: pointer;
 
-}
-
-.dark-theme{
-    color:var(--white);
-    background-color: var(--DarkModeElements);
-}
-
-.light-theme{
-    color:var(--text-color);
-    background-color: var(--white);
 }
