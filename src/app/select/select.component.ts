@@ -1,11 +1,10 @@
-import { NgClass } from '@angular/common';
 import { Component, inject, input,output } from '@angular/core';
 import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './select.component.html',
   styleUrl: './select.component.css'
 })

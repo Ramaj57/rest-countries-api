@@ -18,7 +18,7 @@ export class CountriesService {
     return this.fetchCountryData('https://restcountries.com/v3.1/all');
   }
 
-  getCountryByName(name:string) {
+  getCountryByName(name: string) {
     return this.fetchCountryData(
       `https://restcountries.com/v3.1/name/${name}?fullText=true`
     ).pipe(map(([resData]) => resData));

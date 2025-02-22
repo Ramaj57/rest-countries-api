@@ -1,4 +1,9 @@
-<body [ngClass]="{ 'dark-theme': themeService.isDark(), 'light-theme': !themeService.isDark()}">
-  <app-header (toggle)="toggleTheme()" />
-  <router-outlet/>
+<body
+  [ngClass]="{
+    'dark-theme': themeService.isDark(),
+    'light-theme': !themeService.isDark()
+  }"
+>
+  <app-header />
+  <router-outlet />
 </body>

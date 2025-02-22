@@ -1,18 +1,9 @@
-<div
-  class="details-container"
-  [ngClass]="{
-    'dark-theme': themeService.isDark(),
-    'light-theme': !themeService.isDark()
-  }"
->
-  <a href=""
-    ><button [ngClass]="{
-      'dark-theme': themeService.isDark(),
-      'light-theme': !themeService.isDark()
-    }">
+<div class="details-container">
+  <a href="">
+    <button>
       <img src="/assets/leftArrowIcon.png" alt="" class="backArrow" /> Back
-    </button></a
-  >
+    </button>
+  </a>
   <div class="card-container">
     <div class="left-side">
       <img [src]="image()" [alt]="alt()" class="flag" />
@@ -21,8 +12,8 @@
       <h1>{{ name() }}</h1>
       <ul>
         <li>
-          <span class="bold-list">Native Name(s):</span>
-          {{ displayNativeName(nativeName()) }}
+          <span class="bold-list">Native Name(s):</span
+          >{{ displayNativeName(nativeName()) }}
         </li>
         <li>
           <span class="bold-list">Population:</span

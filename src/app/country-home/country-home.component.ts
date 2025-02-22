@@ -6,9 +6,15 @@ import { SelectComponent } from '../select/select.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ThemeService } from '../theme.service';
-import { NgClass } from '@angular/common';
 
-const region_Options = ['Africa', 'Americas', 'Antarctic', 'Asia', 'Europe', 'Oceania'];
+const region_Options = [
+  'Africa',
+  'Americas',
+  'Antarctic',
+  'Asia',
+  'Europe',
+  'Oceania',
+];
 
 @Component({
   selector: 'app-country-home',
@@ -18,7 +24,7 @@ const region_Options = ['Africa', 'Americas', 'Antarctic', 'Asia', 'Europe', 'Oc
     SelectComponent,
     RouterLink,
     FormsModule,
-    SelectComponent,NgClass
+    SelectComponent,
   ],
   templateUrl: './country-home.component.html',
   styleUrl: './country-home.component.css',
@@ -54,11 +60,11 @@ export class CountryHomeComponent implements OnInit {
                   .includes(this.searchFilter().toLowerCase())
               : country
           )
-          .filter(country =>
+          .filter((country) =>
             this.regionFilter()
               ? country.region.includes(this.regionFilter())
               : country
           )
       : this.countries();
-  }  
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private isDarkMode = false;
@@ -22,5 +22,4 @@ export class ThemeService {
   isDark(): boolean {
     return this.isDarkMode;
   }
-  
 }

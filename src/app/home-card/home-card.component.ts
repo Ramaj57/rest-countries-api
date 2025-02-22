@@ -1,12 +1,11 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { FormatBigNumbersPipe } from '../format-big-numbers.pipe';
 import { ThemeService } from '../theme.service';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-home-card',
   standalone: true,
-  imports: [FormatBigNumbersPipe,NgClass],
+  imports: [FormatBigNumbersPipe],
   templateUrl: './home-card.component.html',
   styleUrl: './home-card.component.css',
 })
@@ -22,7 +21,5 @@ export class HomeCardComponent {
   capital = input<string[] | undefined>(['']);
   flag = input<string>('');
   alt = computed(() => 'picture of ' + this.name() + "'s flag");
-
   public themeService = inject(ThemeService);
-    
 }
