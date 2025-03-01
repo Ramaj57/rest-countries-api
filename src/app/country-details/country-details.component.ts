@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
 import { FormatBigNumbersPipe } from '../format-big-numbers.pipe';
 import { ThemeService } from '../theme.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-country-details',
@@ -28,6 +29,7 @@ export class CountryDetailsComponent {
   private countriesService = inject(CountriesService);
   private destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
+  private location = inject(Location);
   image = signal<string>('');
   name = signal<string>('');
   alt = computed<string>(() => 'picture of ' + this.name() + "'s flag");
@@ -75,5 +77,9 @@ export class CountryDetailsComponent {
 
   displayNativeName(nativeName: NativeName) {
     return Object.values(nativeName).map((orginal) => orginal.official);
+  }
+
+  goBack() {
+    this.location.back()
   }
 }

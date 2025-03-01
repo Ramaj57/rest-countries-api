@@ -1,9 +1,7 @@
 <div class="details-container">
-  <a href="">
-    <button>
+    <button (click)="goBack()">
       <img src="/assets/leftArrowIcon.png" alt="" class="backArrow" /> <span class="backText">Back</span>
     </button>
-  </a>
   <div class="card-container">
     <div class="left-side">
       <img [src]="image()" [alt]="alt()" class="flag" />
