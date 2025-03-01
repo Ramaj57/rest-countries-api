@@ -1,6 +1,5 @@
 .home-container {
-  padding: 1.5rem 3rem;
-  height: 90vh;
+  padding: 1.5rem 3rem; 
   background-color: var(--home-background-color);
 }
 
