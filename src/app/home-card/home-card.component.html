@@ -4,13 +4,13 @@
   <ul>
     <li>
       <span class="bold-list">Population:</span
-      >{{ population() | formatBigNumbers }}
+      >&nbsp;{{ population() | formatBigNumbers }}
     </li>
-    <li><span class="bold-list">Region:</span>{{ region() }}</li>
+    <li><span class="bold-list">Region:</span>&nbsp;{{ region() }}</li>
     @if (capital()?.values){
-    <li><span class="bold-list">Capital:</span>{{ capital() }}</li>
+    <li><span class="bold-list">Capital:</span>&nbsp;{{ capital() }}</li>
     } @else{
-    <li><span class="bold-list">Capital:</span>N/A</li>
+    <li><span class="bold-list">Capital:</span>&nbsp;N/A</li>
     }
   </ul>
 </div>
