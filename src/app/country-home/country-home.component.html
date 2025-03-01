@@ -9,6 +9,9 @@
         name="search"
       />
     </div>
+    <p>
+      <a routerLink="./" [queryParams]="{order: order() === 'asc' ? 'desc' : 'asc'}">Sort {{order() === 'asc' ? 'Descending' : 'Ascending'}}</a>
+    </p>
     <app-select
       [options]="regionOptions()"
       [(value)]="regionFilter"

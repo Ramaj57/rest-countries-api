@@ -22,6 +22,15 @@ input::placeholder {
   color: var(--input-text-color);
 }
 
+a{
+  text-decoration: none;
+  color:var(--text-color);
+}
+
+a:hover{
+color:grey;
+}
+
 .grid-container {
   display: grid;
   justify-items: center;
@@ -38,6 +47,10 @@ input::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  p{
+    margin-top:1rem;
   }
 }
 

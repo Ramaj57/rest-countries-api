@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, inject, input, OnInit, signal } from '@angular/core';
 import { Country } from '../countries-model';
 import { HomeCardComponent } from '../home-card/home-card.component';
 import { CountriesService } from '../countries.service';
@@ -37,6 +37,7 @@ export class CountryHomeComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
   regionOptions = signal(region_Options);
   public themeService = inject(ThemeService);
+  order = input<'asc' | 'desc'>();
 
   ngOnInit(): void {
     const subscription = this.countriesService.getAllCountries().subscribe({
@@ -52,7 +53,12 @@ export class CountryHomeComponent implements OnInit {
 
   get filteredCountries() {
     return this.countries()
-      ? this.countries()
+      ? this.countries().sort((a,b) => {
+        if (this.order() === 'desc') {
+          return a.name.common > b.name.common ? -1 : 1;
+        } else {
+          return a.name.common > b.name.common ? 1 : -1;
+      }})
           .filter((country) =>
             this.searchFilter()
               ? country.name.common
@@ -65,6 +71,6 @@ export class CountryHomeComponent implements OnInit {
               ? country.region.includes(this.regionFilter())
               : country
           )
-      : this.countries();
-  }
-}
+      : this.countries()}
+    };
+  
